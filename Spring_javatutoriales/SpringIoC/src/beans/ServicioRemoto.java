@@ -5,6 +5,8 @@
  */
 package beans;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 // nombre distinto: (value="")
@@ -12,9 +14,22 @@ import org.springframework.stereotype.Service;
 @Service(value="servicioRemoto")
 public class ServicioRemoto {
        
-    public int consultarDato()
+    private Proceso proceso;
+    
+    public ServicioRemoto()
     {
-        return (int)(Math.random()*10.0);
+        
+    }
+    
+    @Autowired    
+    public ServicioRemoto(@Qualifier("calculo")Proceso proceso)
+    {
+        this.proceso = proceso;
+    }
+    
+    public Object consultarDato()
+    {
+        return proceso.ejecuta();
     }
     
 }

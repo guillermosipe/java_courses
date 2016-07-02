@@ -27,19 +27,19 @@ public class SpringIoC {
         System.out.print(sr.consultarDato()+"\n");*/
         
         // A través de un BEAN usando XML
-        /*ApplicationContext context= new ClassPathXmlApplicationContext("applicationContext.xml");
+        ApplicationContext context= new ClassPathXmlApplicationContext("applicationContext.xml");
         //ServicioRemoto servicio= (ServicioRemoto) context.getBean("servicioRemoto");
         ServicioRemoto servicio= context.getBean("servicioRemoto",ServicioRemoto.class);
-        System.out.print(servicio.consultarDato()+"\n");*/
+        System.out.println(servicio.consultarDato());
         
         // A través de un BEAN sin usar XML y usando anotaciones
         // Haciendo referencia a una clase
-        ApplicationContext context= new AnnotationConfigApplicationContext(ServicioRemoto.class);
+        //ApplicationContext context= new AnnotationConfigApplicationContext(ServicioRemoto.class);
         // Haciendo referencia a un paquete
         //ApplicationContext context= new AnnotationConfigApplicationContext("beans");
         //ServicioRemoto servicio= (ServicioRemoto) context.getBean("servicioRemoto");
-        ServicioRemoto servicio= context.getBean("servicioRemoto",ServicioRemoto.class);
-        System.out.print(servicio.consultarDato()+"\n");
+        //ServicioRemoto servicio= context.getBean("servicioRemoto",ServicioRemoto.class);
+        //System.out.println(servicio.consultarDato());
         
     }
     
