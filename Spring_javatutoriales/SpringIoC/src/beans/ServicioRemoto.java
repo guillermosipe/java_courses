@@ -7,6 +7,7 @@ package beans;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 // nombre distinto: (value="")
@@ -16,6 +17,8 @@ public class ServicioRemoto {
        
     private Proceso proceso;
     
+    // DI basado 
+    @Value(value="5")
     private Integer repeticiones;
 
     public void setRepeticiones(Integer repeticiones)
@@ -29,7 +32,7 @@ public class ServicioRemoto {
     }
     
     @Autowired    
-    public ServicioRemoto(@Qualifier("calculo")Proceso proceso)
+    public ServicioRemoto(@Qualifier("ordenamiento")Proceso proceso)
     {
         this.proceso = proceso;
     }
