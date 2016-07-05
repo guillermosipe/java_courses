@@ -16,6 +16,13 @@ public class ServicioRemoto {
        
     private Proceso proceso;
     
+    private Integer repeticiones;
+
+    public void setRepeticiones(Integer repeticiones)
+    {
+     this.repeticiones = repeticiones;
+    }
+    
     public ServicioRemoto()
     {
         
@@ -29,7 +36,14 @@ public class ServicioRemoto {
     
     public Object consultarDato()
     {
-        return proceso.ejecuta();
+        StringBuilder stringBuilder = new StringBuilder();
+
+        for(int i = 0; i < repeticiones; i++)
+        {
+            stringBuilder.append(i + 1).append(" ").append(proceso.ejecuta()).append("\n");
+        }
+
+        return stringBuilder.toString();
     }
     
 }

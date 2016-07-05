@@ -7,17 +7,18 @@
                            http://www.springframework.org/schema/context 
                            http://www.springframework.org/schema/context/spring-context-4.0.xsd">
         <!-- ApplicationContext -->
-       <!-- <bean id="servicioRemoto" class="beans.ServicioRemoto"> -->
+        <bean id="servicioRemoto" class="beans.ServicioRemoto"> 
             <!-- Referencia al bean proceso -->
-            <!-- <constructor-arg ref="proceso" />  -->
+             <constructor-arg ref="proceso" /> 
+             <property name="repeticiones" value="7" /> 
             <!-- ó -->
             <!-- 
             <constructor-arg>
                 <bean id="proceso" class="beans.Ordenamiento"/>
             </constructor-arg>
             -->
-        <!--  </bean> -->
-        <!-- <bean id="proceso" class="beans.Ordenamiento"/> -->
+        </bean> 
+         <bean id="proceso" class="beans.Ordenamiento"/> 
         <!--  <bean id="proceso" class="beans.Concatenacion"/> -->
         
         
@@ -25,7 +26,8 @@
         <!-- Anotaciones:
             Agregar al inicio: xmlns:context="http://www.springframework.org/schema/context"
          -->
-        <context:annotation-config/>
-        <context:component-scan base-package="beans" />
+        <!--<context:annotation-config/>
+        <context:component-scan base-package="beans" />         -->
+
         
 </beans>
